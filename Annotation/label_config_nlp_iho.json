@@ -1,0 +1,82 @@
+[
+  {
+    "id": 39306,
+    "text": "FIRST_NAME",
+    "prefixKey": null,
+    "suffixKey": "0",
+    "backgroundColor": "#73D8FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 39307,
+    "text": "LAST_NAME",
+    "prefixKey": null,
+    "suffixKey": "1",
+    "backgroundColor": "#AEA1FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 39308,
+    "text": "DATE",
+    "prefixKey": null,
+    "suffixKey": "2",
+    "backgroundColor": "#FCDC00",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 39309,
+    "text": "AGE_ABOVE_89",
+    "prefixKey": null,
+    "suffixKey": "3",
+    "backgroundColor": "#68CCCA",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 39310,
+    "text": "LOC",
+    "prefixKey": null,
+    "suffixKey": "4",
+    "backgroundColor": "#7B64FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 39311,
+    "text": "ORG",
+    "prefixKey": null,
+    "suffixKey": "5",
+    "backgroundColor": "#FA28FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 39312,
+    "text": "MED_ORG",
+    "prefixKey": null,
+    "suffixKey": "6",
+    "backgroundColor": "#FDA1FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 39313,
+    "text": "CONTACT",
+    "prefixKey": null,
+    "suffixKey": "7",
+    "backgroundColor": "#68BC00",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 39314,
+    "text": "ID",
+    "prefixKey": null,
+    "suffixKey": "8",
+    "backgroundColor": "#9F0500",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 39315,
+    "text": "INNER_ID",
+    "prefixKey": null,
+    "suffixKey": "9",
+    "backgroundColor": "#F44E3B",
+    "textColor": "#ffffff"
+  }
+]
