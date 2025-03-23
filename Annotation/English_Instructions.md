@@ -25,7 +25,7 @@ This guide provides a step-by-step process to install, configure, and use Doccan
 ### Option 1: Using Provided Conda Environment
 [Link to environment directory](https://drive.google.com/file/d/1tG4jZjARH6H29paLDeCvn7B4muejV4KH/view?usp=drive_link)
 1. Unpack the doccano_env.zip directory to **C:\Users\..\Anaconda3\envs**
-2. Open a command prompt.
+2. Open a anaconda prompt.
 2. Activate doccano_env:
     
 bash
@@ -60,7 +60,7 @@ bash
 
 ## Initialize the Doccano Services
 
-1. In the activated environment, run the following commands in the **first command prompt**:
+1. In the activated environment, run the following commands in the **first anaconda prompt**:
 
    - Initialize Doccano:
      
@@ -78,7 +78,7 @@ bash
      doccano webserver --port 8080
 
 
-2. Open a **second command prompt** (keep the first one running) and start the task service:
+2. Open a **second anaconda prompt** (keep the first one running) and start the task service:
    
 bash
    doccano task
