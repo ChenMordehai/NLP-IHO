@@ -26,7 +26,7 @@
 ### אפשרות 1: שימוש בסביבת Conda שסופקה
 [קישור](https://drive.google.com/file/d/1tG4jZjARH6H29paLDeCvn7B4muejV4KH/view?usp=drive_link) לספרייה
 1. חלצו את ספריית doccano_env.zip אל **C:\Users\..\Anaconda3\envs**
-2. פתחו CMD.
+2. פתחו anaconda prompt.
 3. הפעילו את הסביבה doccano_env:
     
 bash
@@ -61,7 +61,7 @@ bash
 
 ## אתחול שירותי Doccano
 
-1. בסביבה הפעילה, הריצו את הפקודות הבאות ב**CMD הפתוח**:
+1. בסביבה הפעילה, הריצו את הפקודות הבאות ב**anaconda prompt הפתוח**:
 
    - אתחלו את Doccano:
      
@@ -79,7 +79,7 @@ bash
      doccano webserver --port 8080
 
 
-2. פתחו **CMD שני** (השאירו את הראשון פעיל) והפעילו את שירות המשימות:
+2. פתחו **anaconda prompt שני** (השאירו את הראשון פעיל) והפעילו את שירות המשימות:
    
 bash
    doccano task
