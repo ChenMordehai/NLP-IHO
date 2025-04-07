@@ -7,3 +7,4 @@ Natural Language Processing - Israel Health Organizations
 ## Annotation
 - [Hebrew Instructions](https://github.com/ChenMordehai/NLP-IHO/blob/main/Annotation/Hebrew_Instructions.md)
 - [English Instructions](https://github.com/ChenMordehai/NLP-IHO/blob/main/Annotation/English_Instructions.md)
+- [Video Tutorial](https://drive.google.com/file/d/1JYuQDKRQyk0ujXGaCthkqADzEZj_nWD-/view?usp=drive_link)
