@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ביצועי התממה אל מול Gold Standard</title>
+<style>
+  :root{
+    --bg:#0b1020;
+    --card:#121935;
+    --ink:#e8ecf7;
+    --sub:#b7c1dc;
+    --accent:#8ad0ff;
+    --accent-2:#74f0b8;
+    --danger:#ff7a7a;
+    --warn:#ffd36e;
+    --ok:#8ef28c;
+    --muted:#1a2347;
+    --border:#29325c;
+  }
+  html,body{background:linear-gradient(180deg,#0b1020 0%,#0d1326 100%);color:var(--ink);font-family:"Rubik","Segoe UI",Tahoma,Arial,Helvetica,sans-serif;line-height:1.6}
+  .container{max-width:980px;margin:0 auto;padding:28px}
+  .hero{
+    background: radial-gradient(1200px 300px at 50% -20%, rgba(138,208,255,0.18), transparent 60%);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:28px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  }
+  h1{margin:0 0 6px 0;font-size:clamp(26px,3.8vw,40px);font-weight:800;letter-spacing:.2px}
+  .subtitle{color:var(--sub);font-size:clamp(14px,2vw,18px);margin-top:4px}
+  .cta{
+    display:inline-flex;align-items:center;gap:.6rem;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    color:#08101e;text-decoration:none;padding:12px 18px;border-radius:14px;
+    font-weight:700;margin-top:16px;
+    box-shadow:0 6px 18px rgba(116,240,184,0.25);
+  }
+  .cta span.badge{background:#08101e;color:var(--ink);border-radius:10px;padding:2px 8px;font-weight:800;font-size:12px}
+  .note{margin-top:10px;color:var(--sub);font-size:14px}
+  .toc{margin:26px 0 18px 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+  .toc a{
+    display:block;text-decoration:none;border:1px solid var(--border);color:var(--ink);
+    background:linear-gradient(180deg,#121935 0%,#0d1530 100%);padding:12px 14px;border-radius:14px
+  }
+  section{margin:22px 0;padding:22px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(180deg,#0f1733 0%,#0c1228 100%)}
+  h2{margin:0 0 12px 0;font-size:22px}
+  h3{margin:14px 0 8px 0;font-size:18px;color:var(--accent)}
+  p{margin:0 0 10px 0}
+  ul{margin:0 0 10px 0;padding-inline-start:18px}
+  li{margin:6px 0}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+  .card{border:1px solid var(--border);border-radius:14px;background:linear-gradient(180deg,#101735 0%,#0c132b 100%);padding:14px}
+  .badge{display:inline-block;font-weight:800;border-radius:10px;font-size:12px;padding:2px 8px;margin-inline-start:8px}
+  .b-ok{background:rgba(142,242,140,.16);color:var(--ok)}
+  .b-warn{background:rgba(255,211,110,.16);color:var(--warn)}
+  .b-danger{background:rgba(255,122,122,.16);color:var(--danger)}
+  .callout{border-left:4px solid var(--accent-2);padding:10px 12px;background:rgba(116,240,184,.06);border-radius:10px}
+  code, .kbd{font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",Menlo,monospace;background:var(--muted);color:var(--ink);padding:2px 6px;border-radius:8px}
+  .small{font-size:13px;color:var(--sub)}
+  .two-col{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+  .pill{display:inline-block;border:1px solid var(--border);border-radius:999px;padding:4px 10px;background:#0e1631;color:var(--sub);font-size:13px;margin:3px 6px 0 0}
+  .footer{margin-top:26px;color:var(--sub);font-size:13px;text-align:center}
+  a{color:var(--accent)}
+
+    /* Square layout for TP/FP/FN/Partial TP with explicit placement */
+  .grid-square{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;grid-template-areas:"fp tp" "fn ptp";gap:14px}
+  .grid-square.ltr{direction:ltr}
+  .grid-square .card{direction:rtl}
+  .pos-fp{grid-area:fp}
+  .pos-tp{grid-area:tp}
+  .pos-fn{grid-area:fn}
+  .pos-ptp{grid-area:ptp}
+
+</style>
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <h1>ביצועי התממה אל מול Gold Standard</h1>
+      <a class="cta" href="https://drive.google.com/file/d/1lutE_qfX6sh6EvKUfrWYpI1HQfDSReAC/view?usp=drive_link" target="_blank" rel="noopener">
+        <span>⬇️ הורדת קובץ ההפעלה (.exe)</span>
+        <span class="badge">GUI</span>
+      </a>
+    </header>
+
+    <nav class="toc">
+      <a href="#what">1) מה הכלי עושה</a>
+      <a href="#how">2) איך מריצים – שלב אחרי שלב</a>
+      <a href="#dates">3) משמעות התאריכים</a>
+      <a href="#tabs">4) מה כל טאב מציג</a>
+      <a href="#outputs">5) מה התוצרים שנשמרים</a>
+      <a href="#metrics">6) איך לקרוא את המדדים ומה המשמעות</a>
+    </nav>
+
+    <section id="what">
+      <h2>1) מה הכלי עושה</h2>
+      <p>הכלי משווה בין <strong>טקסטים שתוייגו ידנית</strong> (Gold Standard) לבין <strong>הטקסטים לאחר התממה</strong>, לפי מזהה רשומה משותף (<em>row_index</em>). לכל רשומה מחשבים אירוע(ים) של התממה ומסווגים לקטגוריות הבאות:</p>
+
+      <!-- Square layout: top-right TP, bottom-right Partial TP, top-left FP, bottom-left FN -->
+      <div class="grid-square ltr">
+        <div class="card pos-fp"><strong>FP (False Positive) – התממת יתר</strong><span class="badge b-danger">לטיפול</span><br>בוצעה התממה במקום שלא נדרש.</div>
+        <div class="card pos-tp"><strong>TP (True Positive) – התממה מדויקת</strong><span class="badge b-ok">טוב</span><br>בוצעה התממה בדיוק היכן שנדרש.</div>
+        <div class="card pos-fn"><strong>FN (False Negative) – פספוס התממה</strong><span class="badge b-danger">לטיפול</span><br>מקום שנדרש לבצע בו התממה – לא בוצעה.</div>
+        <div class="card pos-ptp"><strong>Partial TP (Partial True Positive) – התממה חלקית</strong><span class="badge b-warn">בינוני</span><br>בוצעה התממה על חלק מהישות/הטווח, אך לא על כולו.</div>
+      </div>
+
+      <p>לאחר הסיווג, הכלי מחשב מדדי <strong>Precision</strong>, <strong>Recall</strong>, ו-<strong>F1</strong> הן ברמה כללית והן <strong>לפי תווית/תגית (Label)</strong>, ומפיק דו&quot;חות ותרשימים לשמירה.</p>
+    </section>
+
+    <section id="how">
+      <h2>2) איך מריצים – שלב אחרי שלב</h2>
+      <ol>
+        <li><strong>לוחצים</strong> על קובץ ההרצה(<code>.exe)</code> שהורדתם.</li>
+        <li><strong>בוחרים קבצים:</strong>
+          <ul>
+            <li><strong>Gold Standard</strong> - תוצר התיוג הידני, לאחר פתירת המחלוקות בין המתייגים.</li>
+            <li><strong>Anonymization Result</strong> – תוצאות ההתממה על אותם טקסטים (קובץ .jsonl).</li>
+          </ul>
+        </li>
+        <li><strong>בחירת מצב:</strong> <span class="pill">כולל תאריכים</span> או <span class="pill">ללא תאריכים</span>.</li>
+        <li><strong>Run Analysis</strong> והמתינו לסיום.</li>
+        <li><strong>עוברים על הטאבים</strong> לבחינת התוצאות.</li>
+        <li><strong>Export / שמירה:</strong> שומרים את כל התוצרים לתיקייה ייעודית.</li>
+      </ol>
+      <div class="callout">
+        🔁 <strong>חשוב:</strong> מריצים <u>פעמיים</u> – פעם <em>עם</em> תאריכים ופעם <em>בלי</em> – ושומרים כל ריצה בתיקייה נפרדת כדי שניתן יהיה להשוות ביניהן.
+      </div>
+    </section>
+
+    <section id="dates">
+      <h2>3) משמעות התאריכים</h2>
+      <div class="two-col">
+        <div class="card">
+          <h3>כולל תאריכים</h3>
+          <ul>
+            <li>נותן תמונה כוללת של ביצועי המודל.</li>
+            <li>לעיתים המדדים גבוהים, כי תאריכים שכיחים וקלים יחסית לזיהוי.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>ללא תאריכים</h3>
+          <ul>
+            <li>מנטרל הטיית שכיחות של תאריכים.</li>
+            <li>מודד את איכות המודל ביתר התגיות (שמות, ארגונים, מקומות, טלפונים וכו').</li>
+          </ul>
+        </div>
+      </div>
+      <p class="small">ההשוואה בין שתי הריצות תחשוף אם המודל נשען מדי על תגית אחת ומה מצב שאר התגיות.</p>
+    </section>
+
+    <section id="tabs">
+      <h2>4) מה כל טאב מציג</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Summary</h3>
+          סיכום כללי: TP / Partial / FP / FN, מדדי Precision/Recall/F1, והגדרות הריצה (כולל/ללא תאריכים).
+        </div>
+        <div class="card">
+          <h3>Per‑Label Metrics</h3>
+          מדדים לכל תגית (Label): ספירות TP/FP/FN/Partial וצייני Precision/Recall/F1 לזיהוי תגיות חלשות.
+        </div>
+        <div class="card">
+          <h3>Visual Analysis</h3>
+          תרשימים המסכמים התפלגות טעויות (לדוגמה שיעור FP/FN ותגיות בעייתיות).
+        </div>
+        <div class="card">
+          <h3>Error Analysis</h3>
+          תובנות מילוליות: היכן מרוכזים FN/FP, דפוסים חוזרים ורעיונות לשיפור.
+        </div>
+        <div class="card">
+          <h3>Top FN Terms</h3>
+          מונחים/דוגמאות שהוחמצו הכי הרבה (Misses) לפי תגית – בסיס מעולה לשיפורים.
+        </div>
+        <div class="card">
+          <h3>Top FP Terms</h3>
+          מונחים/דוגמאות שהוסתרו שלא לצורך (Over‑mask) לפי תגית – לצמצום הסתרת יתר.
+        </div>
+        <div class="card">
+          <h3>All Differences</h3>
+          כל האירועים עם הקשר טקסטואלי קצר (לפני/אחרי), סוג השגיאה והתגית – שימושי ל‑debug נקודתי.
+        </div>
+      </div>
+    </section>
+
+    <section id="outputs">
+      <h2>5) מה התוצרים שנשמרים</h2>
+      <ul>
+        <li><code>metrics.csv</code> – טבלת מדדים לכל תגית + סיכום כללי.</li>
+        <li><code>differences.csv</code> – כל האירועים (TP/FP/FN/Partial) עם ההקשרים.</li>
+        <li><code>summary.txt</code> / <code>errors.txt</code> – סיכום מילולי ותובנות לשיפור.</li>
+        <li><code>charts.png</code> (אם זמין) – תרשימי מבט-על.</li>
+        <li><code>run_config.json</code> – פרטי ריצה (לשחזור/השוואה עתידית).</li>
+      </ul>
+      <div class="callout">
+        🔒 <strong>רגישות מידע:</strong> בדקו שאין בדו&quot;חות מידע שאסור לשתף מחוץ לארגון.
+      </div>
+    </section>
+
+    <section id="metrics">
+      <h2>6) איך לקרוא את המדדים ומה המשמעות</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Precision</h3>
+          מתוך מה <strong>שעבר התממה</strong> – כמה באמת <strong>נדרש לעבור התממה</strong>.<br>
+          <span class="small">נמוך 🢀 הרבה <strong>FP</strong> (התממת יתר).</span>
+        </div>
+        <div class="card">
+          <h3>Recall</h3>
+          מתוך מה שהיה צריך <strong>לעבור התממה</strong> – כמה אכן <strong>עבר התממה</strong>.<br>
+          <span class="small">נמוך 🢀 הרבה <strong>FN</strong> (פספוסים).</span>
+        </div>
+        <div class="card">
+          <h3>F1</h3>
+          הממוצע ההרמוני של Precision ו-Recall – ציון מרכזי להשוואה בין עולמות תוכן.
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      לשאלות ניתן לפנות במייל -
+      <a href="mailto:chenmor1@clalit.org.il">chenmor1@clalit.org.il</a>
+    </div>
+  </div>
+</body>
+</html>
