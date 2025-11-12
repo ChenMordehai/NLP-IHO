@@ -19,3 +19,4 @@ Natural Language Processing - Israel Health Organizations
 ## Compare to Gold Standard
 - [Automated Compare Tool](https://drive.google.com/file/d/1k8C33bstK93W_7JUmHwrQvASd18MVLlL/view?usp=drive_link)
 - [Guid](https://github.com/ChenMordehai/NLP-IHO/blob/main/Compare%20To%20Gold%20Standard/Guide-MeasuringAnonymizationPerformance.md)
+- [Results per Domain](https://github.com/ChenMordehai/NLP-IHO/blob/main/Compare%20To%20Gold%20Standard/metrics.png)
